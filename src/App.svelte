@@ -2,6 +2,7 @@
   import data from './data'
   import DataNode from './node'
   import Router from './router'
+  import Tree from './Tree.svelte'
 
   const dataTree = DataNode.buildTree(data)
   const router = new Router(dataTree)
@@ -28,6 +29,8 @@
   {#if node.parent}
     <a href="{router.buildNodeUrlPath(node.parent)}">Go up</a>
   {/if}
+
+  <Tree data={dataTree} />
 </main>
 
 <style>
