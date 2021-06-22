@@ -1,5 +1,6 @@
 <script>
   import TreeNode from './TreeNode.svelte'
+  import NodeBreadcrumb from './NodeBreadcrumb.svelte'
   export let data
   export let currentNode
 
@@ -18,7 +19,7 @@
     <h1>{currentNode.name}</h1>
 
     {#if currentNode.parent}
-      <TreeNode node={currentNode.parent} on:select={nodeClicked}/>
+      <NodeBreadcrumb node={currentNode} on:select={nodeClicked} />
     {/if}
 
     {#if currentNode.children && currentNode.children.length > 0}
